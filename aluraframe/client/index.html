@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Negociações</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    
+</head>
+<body class="container">
+    
+    <h1 class="text-center">Negociações</h1>
+    
+    <form class="form" onsubmit="negociacaoController.adiciona(event)">
+        
+        <div class="form-group">
+            <label for="data">Data</label>
+            <input type="date" id="data" class="form-control" required autofocus/>        
+        </div>    
+        
+        <div class="form-group">
+            <label for="quantidade">Quantidade</label>
+            <input type="number" min="1" step="1" id="quantidade" class="form-control" value="1" required/>
+        </div>
+        
+        <div class="form-group">
+            <label for="valor">Valor</label>
+            <input id="valor" type="number" class="form-control"  min="0.01" step="0.01" value="0.0" required />
+        </div>
+        
+        <button class="btn btn-primary" type="submit">Incluir</button>
+    </form>
+    
+    <div class="text-center">
+        <button class="btn btn-primary text-center" type="button">
+            Importar Negociações
+        </button>
+        <button class="btn btn-primary text-center" type="button">
+            Apagar
+        </button>
+    </div> 
+    <br>
+    <br>
+    
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>DATA</th>
+                <th>QUANTIDADE</th>
+                <th>VALOR</th>
+                <th>VOLUME</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        </tbody>
+        
+        <tfoot>
+        </tfoot>
+    </table>
+    <script src="js/app/models/Negociacao.js"></script>
+    <script src="js/app/controllers/NegociacaoController.js"></script>
+    <script>
+    
+        // let n1 = new Negociacao(new Date(), 5, 700);
+        // // n1._quantidade = 10000; aqui é possível alterar o valor, mas nao pode!
+        // // Object.freeze(n1); congelar lá no construtor
+        // // n1._quantidade = 1000000 depois do freeze não é mais possível alterar o valor
+        // console.log(Object.isFrozen(n1));
+        // console.log(n1.data);
+        // console.log(n1.valor);
+        // console.log(n1.quantidade);
+        // console.log(n1.volume);
+
+
+        let negociacaoController = new NegociacaoController();
+    </script>
+</body>
+</html>
